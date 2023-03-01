@@ -6,6 +6,81 @@ jenkins:
         password: "panda"
   authorizationStrategy:
     globalMatrix:
-      permission:
+      permissions:
       - "Overall/Administer:panda"
   numExecutors: 0
+
+tool:
+  sonarRunnerInstallation:
+    installations:
+    - name: "SonarQube"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "4.7.0.2747"
+
+unclassified:
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - name: "SonarQube"
+      serverUrl: "http://192.168.44.44:9000"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          id: "artifactory"
+          username: "admin"
+          password: "password"
+          scope: GLOBAL
+      - basicSSHUserPrivateKey:
+          id: "jenkins_agent"
+          username: "jenkins"
+          privateKeySource:
+            directEntry: 
+              privateKey: |
+                -----BEGIN OPENSSH PRIVATE KEY-----
+                b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+                NhAAAAAwEAAQAAAYEAuaP+aJMtbD7OnUmY8M7wDLBO/5lvzb0/5DdDgk91MArlglPsLOne
+                Lt4kBS9VXmAYUzO8rVKuLPT1w7IQX19hqKxLur7ZuX0Fo4hsXVoT6Vk5O2iMoAYSySyXHk
+                PHgGzaXX23/T8NOWwe2KbJK7Fc4tCB/NUhjXML5raWJvd/UINYxUa89gUANnUNRqH8Qkp9
+                keNuffhYLcwehkisdPZ6DfSuOvXXTPirFDIoZ5Y4EdQpHTO10fBIs3wBm2MFUFT1zL8CE3
+                +py2LxqSxbHcHi1S3RbbvmS/P9/Jn1kMArKOHuxY8fm3s0YeB8ygAvBcYOx/Q60gl96EE0
+                k/bmKOjoXmFRRh08cMsF7++aHsyoJckKWMJt8arafThp+3nOhHPuVJ5DtwsFMPrvd6ZzZr
+                5j8SbLQ3EjpefMkQhvhyG7aWkoHw+dlXd3z6XMNgNohjg/Vsb21KMHQ00Th8IMRZLmKE5n
+                sYJKB3JqTJr7sljtWmn+7bRTld5y+KyMRKHPG2xFAAAFiIQoLTaEKC02AAAAB3NzaC1yc2
+                EAAAGBALmj/miTLWw+zp1JmPDO8AywTv+Zb829P+Q3Q4JPdTAK5YJT7Czp3i7eJAUvVV5g
+                GFMzvK1Sriz09cOyEF9fYaisS7q+2bl9BaOIbF1aE+lZOTtojKAGEskslx5Dx4Bs2l19t/
+                0/DTlsHtimySuxXOLQgfzVIY1zC+a2lib3f1CDWMVGvPYFADZ1DUah/EJKfZHjbn34WC3M
+                HoZIrHT2eg30rjr110z4qxQyKGeWOBHUKR0ztdHwSLN8AZtjBVBU9cy/AhN/qcti8aksWx
+                3B4tUt0W275kvz/fyZ9ZDAKyjh7sWPH5t7NGHgfMoALwXGDsf0OtIJfehBNJP25ijo6F5h
+                UUYdPHDLBe/vmh7MqCXJCljCbfGq2n04aft5zoRz7lSeQ7cLBTD673emc2a+Y/Emy0NxI6
+                XnzJEIb4chu2lpKB8PnZV3d8+lzDYDaIY4P1bG9tSjB0NNE4fCDEWS5ihOZ7GCSgdyakya
+                +7JY7Vpp/u20U5XecvisjEShzxtsRQAAAAMBAAEAAAGAPp7WI7p52Qi6s43u/FQh33XdwB
+                SnBTSwh7Aoop1g/2q9jp/2jBP7sb2XUvRrjKFHs1FBdQnt3RZojLHVGgbXr4knJoBYe1xz
+                +Xz8aOUI0G8bgjG7NgO2dIwJEdl1Q5n0cxMEbHXHZTZWlWh1dbqnhY8mOf4/CjLjsdinf8
+                9+787OtAUvmqGHN9d2OfxMVqRABWU9kVqjjBdNuKhtHCtEcs61swfYr4s2UmK1BHREx6bU
+                k5gs3ft62qia9iqJ0VZG3Dv4QD7A7xhVXB/3FxONq7rTHHcPdYzqPnQjPSdOYuqn7+0Wjy
+                1WSF0kL04ZqiIzNWt6W8TSKCkHDtlOZHfG7KypllRBKsakMILSL6Abv9FtDyaZH5K/+i9V
+                duGPykeVktiH4cjUbWG3CGMaI9LM5jgTToTH9I4HYrYWZuduxoeI8s3jpduZYwop/7CVo5
+                8wuGh70AU+9mC/0j0j9DoH2mVYsW7AstlUjE5976Q4gl1U8qxEL3RMrnCm9u/GmLaBAAAA
+                wHfkLd3WTLHjbNq9UJTDo22Ow8y+4MW7ri1IGpd3u9L1SnVhhDmtSaqVnm0cuQ3meGdlQi
+                i/SrgLGKrgF6IHWPE2qgQz5jtAk+cOxiLm528XOc5u+Oo3bDPxAfanBGQY9yYgOgDu/Bej
+                nYuGUwRLuPGV54dgq0LRj5eRYKe5BS4y8yL576lDAkeAIBH3yk4L2XJgRBptRUdwaT/Zyf
+                qgDUESqvn2YJ+CQMq0Om0GPT5ywNOnaGmFXmGHF6nuJdk7XgAAAMEA7hJjW+ej/n4zF0G2
+                zgdcWR7wv83mAWw9Ua5VRkrQ0bCX145Y+YuDTgKtLQR4WntzUE7zeKXJTz7/fHDCERM6jW
+                IG9zKUn65YOqbcq63HGZEEQc5o5kG04jQ0h7dNJBsQL0SwknHbDanSIYOm/fWRhuQ1NDjm
+                QVRWCn2ovUeAwBMd0ItUXwCRBXQP3m495pYspB+CKautc5Y9FWzZdNbzlA8tgjGgexBVZW
+                mbqr8uQJ3/SFS/XjZ+ju74tf/kn/7lAAAAwQDHntKR8nL6j+dcdZaZpe1nnRUZUi5TiQRo
+                GWHn4f2X7LfKPlpbKQffnMVn8YAT/PiBfgZh3S5TyuYJT6GE57dUeGE2tF/G7H6QY9dBpb
+                OBGBxRENnQdUywXc7CBHUgYt/mrXDK+9L494y8PFCVtEJNHQmfE9mOtFPtaek6Rf8p5OXQ
+                Zn8zq7oSZqrqdQomlsFgOZraXNapAWY2hbd144/dqYIEtPqLNpUZLvayMilIcXBmm2cyiy
+                1AO9ohdXcvgeEAAAANcGFuZGFAdmFncmFudAECAwQFBg==
+                -----END OPENSSH PRIVATE KEY-----
+          scope: GLOBAL
