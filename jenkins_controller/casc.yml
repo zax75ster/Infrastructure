@@ -1,8 +1,4 @@
 jenkins:
-  systemMessage: "Welcome to Jenkins!"
-  locale:
-    language: "en"
-    country: "US"
   securityRealm:
     local:
       users:
