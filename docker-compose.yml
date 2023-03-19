@@ -1,4 +1,4 @@
-version: '2.4'
+version: "2.4"
 
 services:
   artifactory:
@@ -16,7 +16,7 @@ services:
           "CMD",
           "curl",
           "-f",
-          "http://localhost:8082/artifactory/api/system/ping"
+          "http://localhost:8082/artifactory/api/system/ping",
         ]
       interval: 1m30s
       timeout: 30s
@@ -34,6 +34,7 @@ services:
     restart: always
     volumes:
       - ./jenkins_controller/casc.yml:/usr/share/jenkins/ref/casc.yml
+      - ./jenkins_controller/jobs/:/usr/share/jenkins/ref/jobs
   jenkins_agent:
     depends_on:
       - jenkins
