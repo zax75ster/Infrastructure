@@ -100,7 +100,7 @@
             <terraformType>MODULE</terraformType>
         </localRepository>
         <localRepository>
-            <key>docker-docker-local</key>
+            <key>docker-local</key>
             <type>docker</type>
             <includesPattern>**/*</includesPattern>
             <repoLayoutRef>simple-default</repoLayoutRef>
@@ -163,7 +163,7 @@
     </localRepositories>
     <remoteRepositories>
         <remoteRepository>
-            <key>docker-docker-remote</key>
+            <key>docker-remote</key>
             <type>docker</type>
             <includesPattern>**/*</includesPattern>
             <repoLayoutRef>simple-default</repoLayoutRef>
@@ -230,11 +230,11 @@
             <artifactoryRequestsCanRetrieveRemoteArtifacts>false</artifactoryRequestsCanRetrieveRemoteArtifacts>
             <resolveDockerTagsByTimestamp>false</resolveDockerTagsByTimestamp>
             <repositories>
-                <repositoryRef>docker-docker-local</repositoryRef>
-                <repositoryRef>docker-docker-remote</repositoryRef>
+                <repositoryRef>docker-local</repositoryRef>
+                <repositoryRef>docker-remote</repositoryRef>
             </repositories>
             <pomRepositoryReferencesCleanupPolicy>discard_active_reference</pomRepositoryReferencesCleanupPolicy>
-            <defaultDeploymentRepo>docker-docker-local</defaultDeploymentRepo>
+            <defaultDeploymentRepo>docker-local</defaultDeploymentRepo>
             <virtualCacheConfig>
                 <virtualRetrievalCachePeriodSecs>600</virtualRetrievalCachePeriodSecs>
             </virtualCacheConfig>
