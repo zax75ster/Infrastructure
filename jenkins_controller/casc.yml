@@ -82,6 +82,14 @@ jobs:
   - file: /usr/share/jenkins/ref/jobs/app_of_apps.groovy
             
 tool:
+  terraform:
+    installations:
+    - name: "Terraform"
+      properties:
+      - installSource:
+          installers:
+          - terraformInstaller:
+              id: "1.4.4-linux-amd64"
   sonarRunnerInstallation:
     installations:
     - name: "SonarQube"
